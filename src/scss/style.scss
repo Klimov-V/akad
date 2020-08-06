@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap');
+@import 'bootstrap/bootstrap';
+@import 'variables';
+@import 'mixins';
+
+
+html {
+    font-size: 16px;
+}
+
+img {
+    width: 100%;
+}
+
+section {
+    padding: calc(4.25rem + 0.75vw) 0;
+}
+
+@each $color, $value in $theme-colors {
+    .stroke-#{$color} {
+        stroke: $value;
+    }
+}
+
+.filter {
+    @extend .btn;
+    @include button-variant(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), $body-color, $primary, $primary, $white);
+    
+    &.filter-active {
+        @include button-variant($primary, $primary, $white, $primary, $primary, $white);
+    }
+}
